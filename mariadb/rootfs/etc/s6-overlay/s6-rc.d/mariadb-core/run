@@ -8,3 +8,9 @@
 bashio::log.info "Starting MariaDB"
 mkdir -p /run/mysqld
 exec mysqld --datadir="${MARIADB_DATA}" --user=root < /dev/null
+
+echo "[galera]" >> /etc/mysql/my.cnf
+echo "wsrep_cluster_name=${galera_cluster_name}" >> /etc/mysql/my.cnf
+echo "wsrep_cluster_address=${galera_cluster_address}" >> /etc/mysql/my.cnf
+echo "wsrep_node_address=${galera_node_address}" >> /etc/mysql/my.cnf
+echo "wsrep_sst_method=${galera_sst_method}" >> /etc/mysql/my.cnf
