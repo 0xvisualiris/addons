@@ -23,10 +23,6 @@ options:
   rights:
     - database: homeassistant
       username: homeassistant
-  galera_cluster_name: "home_assistant_cluster"     # New Galera options
-  galera_cluster_address: "gcomm://HA_Server_IP,Unraid_Server_IP"
-  galera_node_address: "This_Node_IP"
-  galera_sst_method: "rsync"
 ports:
   3306/tcp: null
 schema:
