@@ -18,11 +18,15 @@ options:
   databases:
     - homeassistant
   logins:
-    - password: null
-      username: homeassistant
+    - username: homeassistant
+      password: null
   rights:
     - database: homeassistant
       username: homeassistant
+  galera_cluster_name: "home_assistant_cluster"     # New Galera options
+  galera_cluster_address: "gcomm://HA_Server_IP,Unraid_Server_IP"
+  galera_node_address: "This_Node_IP"
+  galera_sst_method: "rsync"
 ports:
   3306/tcp: null
 schema:
@@ -34,10 +38,12 @@ schema:
   rights:
     - database: str
       privileges:
-        - "list(ALTER|CREATE|CREATE ROUTINE|CREATE TEMPORARY TABLES|\
-          CREATE VIEW|DELETE|DELETE HISTORY|DROP|EVENT|GRANT OPTION|INDEX|\
-          INSERT|LOCK TABLES|SELECT|SHOW VIEW|TRIGGER|UPDATE)?"
+        - "list(ALTER|CREATE|CREATE ROUTINE|CREATE TEMPORARY TABLES|CREATE VIEW|DELETE|DELETE HISTORY|DROP|EVENT|GRANT OPTION|INDEX|INSERT|LOCK TABLES|SELECT|SHOW VIEW|TRIGGER|UPDATE)?"
       username: str
+  galera_cluster_name: str            # New schema definitions
+  galera_cluster_address: str
+  galera_node_address: str
+  galera_sst_method: str
 services:
   - mysql:provide
 startup: system
