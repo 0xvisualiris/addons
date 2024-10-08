@@ -37,3 +37,12 @@ innodb_buffer_pool_size = 128M
 innodb_log_buffer_size = 8M
 innodb_log_file_size = 48M
 max_binlog_size = 96M
+
+# --- Galera Cluster Configuration ---
+wsrep_on=ON
+wsrep_provider=/usr/lib/galera/libgalera_smm.so
+wsrep_cluster_name="your_cluster_name"
+wsrep_cluster_address="gcomm://HA_Server_IP,Unraid_Server_IP"
+wsrep_node_address="This_Node_IP"
+wsrep_node_name="This_Node_Name"
+wsrep_sst_method=rsync
