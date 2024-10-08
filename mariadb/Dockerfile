@@ -6,7 +6,9 @@ RUN apk add --no-cache \
     mariadb \
     mariadb-client \
     mariadb-server-utils \
-    pwgen
+    pwgen \
+    galera \
+    rsync
 
 ENV \
     LD_PRELOAD="/usr/local/lib/libjemalloc.so.2"
